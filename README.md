@@ -35,6 +35,13 @@ npm run build
 npx serve ./dist -p 9292
 ```
 
+## Documentation composant
+
+Accès à la doc:
+```bash
+npm run storybook
+```
+
 # La LAN party
 
 ## Objectifs
