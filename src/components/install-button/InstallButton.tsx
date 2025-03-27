@@ -52,7 +52,7 @@ const InstallButton: React.FC = () => {
 
   return supportsPWA ? (
     <div className='root'>
-      <p>Installez l'application Simon sur votre appareil dès maintenant en cliquant sur le bouton ci-dessous.</p>
+      <p>Installez l'application sur votre appareil dès maintenant en cliquant sur le bouton ci-dessous.</p>
       <div className='buttonInstall'>
         <button onClick={handleClick}>Installer l'application</button>
       </div>
