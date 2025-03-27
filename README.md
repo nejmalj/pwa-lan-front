@@ -13,6 +13,10 @@ MyDigitalArena est une application web en React, développée avec Vite, qui per
 - Node.js (version 14 ou supérieure)
 - npm ou yarn
 
+```bash
+nvm use 20.19.0
+```
+
 ## Installation
 
 Clonez le dépôt et installez les dépendances :
