@@ -1,5 +1,5 @@
 import {useCallback} from "react";
-import '../styles/SwissRoundTab.css';
+import './SwissRoundTab.scss';
 
 interface GameHistory {
     opponent: string;

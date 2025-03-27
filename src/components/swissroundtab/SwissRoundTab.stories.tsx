@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SwissRoundTab from '../components/SwissRoundTab';
-import { SwissRoundTabProps } from '../components/SwissRoundTab';
+import SwissRoundTab from './SwissRoundTab.tsx';
+import { SwissRoundTabProps } from './SwissRoundTab.tsx';
 
 export default {
     title: 'Components/SwissRoundTab',
