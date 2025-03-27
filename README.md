@@ -34,3 +34,23 @@ ou
 npm run build
 npx serve ./dist -p 9292
 ```
+
+# La LAN party
+
+## Objectifs
+
+Première page d'accroche = site vitrine
+  - Présentation de l'événement
+  - Formulaire d'inscription
+  - Affichage du nombre d'inscrits
+  - Présentation des jeux
+  - Présentation des sponsors
+
+Page de tournoi
+  - affichage des tournois (Echecs / rocket league)
+  - affichage des arbres type tournoi suisse
+  - affichage des résultats
+
+Page de résultats
+  - podium + arbre de tournoi
+  - affichage des résultats des tournois
