@@ -1,4 +1,6 @@
-$primary-gradient: linear-gradient(90deg, #E07A30 0%, #DD5227 100%);
+@use "../../../styles/_variables" as *;
+
+$primary-gradient: linear-gradient(90deg, $primary 0%, $primary-dark 100%);
 $secondary-color: #6c757d;
 $danger-color: #dc3545;
 
