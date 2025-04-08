@@ -10,7 +10,6 @@ const meta: Meta<typeof TeamCard> = {
         players: [
             { name: "Lala", promoName: "MBA DFS", levelName: "Bronze" },
             { name: "Toto", promoName: "MBA DFS", levelName: "Bronze" },
-            { name: "Titi", promoName: "MBA DFS", levelName: "Bronze" },
         ],
     },
 };
@@ -24,7 +23,6 @@ export const Default: Story = {
         players: [
           { name: "Lala", promoName: "MBA DFS", levelName: "Bronze" },
           { name: "Toto", promoName: "MBA DFS", levelName: "Bronze" },
-          { name: "Titi", promoName: "MBA DFS", levelName: "Bronze" },
         ],
     },
 };
