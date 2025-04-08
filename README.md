@@ -65,3 +65,7 @@ Page de tournoi
 Page de résultats
   - podium + arbre de tournoi
   - affichage des résultats des tournois
+
+## Maquette
+
+https://www.figma.com/design/dHh7R0x99L0gvn9qCwMYRS/MyDigitalArena?node-id=7-125
