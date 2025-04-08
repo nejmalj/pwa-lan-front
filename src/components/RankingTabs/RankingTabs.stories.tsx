@@ -2,81 +2,98 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import RankingTabs from "./RankingTabs";
 
-// Exemple de données pour le classement
+// Données fictives pour le classement (simple et propre)
 const sampleRankingData = [
-  { rank: 1, équipe: "Team A", win: 10, loss: 2 },
-  { rank: 2, équipe: "Team B", win: 9, loss: 3 },
-  { rank: 3, équipe: "Team C", win: 8, loss: 4 },
+  { rank: 1, équipe: "Team Alpha", win: 3, loss: 0 },
+  { rank: 2, équipe: "Team Omega", win: 2, loss: 1 },
+  { rank: 3, équipe: "Team Mu", win: 1, loss: 2 },
+  { rank: 4, équipe: "Team Delta", win: 0, loss: 3 },
 ];
 
-// Exemple de données pour le bracket swiss round
-// Ici, on suppose que SwissRoundElementsProps attend des matches de type { id: number; name: string; }[]
-// Exemple corrigé de données pour le bracket swiss round
+// Réutilisation des matches définis dans les stories SwissRoundElement
+const swissRoundElementData = [
+  {
+    nbWin: 2,
+    nbLoose: 1,
+    matches: [
+      {
+        team1: "Team Alpha",
+        team2: "Team Beta",
+        scoreTeam1: 3,
+        scoreTeam2: 2,
+      },
+      {
+        team1: "Team Alpha",
+        team2: "Team Gamma",
+        scoreTeam1: 1,
+        scoreTeam2: 3,
+      },
+      {
+        team1: "Team Alpha",
+        team2: "Team Delta",
+        scoreTeam1: 3,
+        scoreTeam2: 0,
+      },
+    ],
+  },
+  {
+    nbWin: 3,
+    nbLoose: 0,
+    matches: [
+      {
+        team1: "Team Omega",
+        team2: "Team Sigma",
+        scoreTeam1: 3,
+        scoreTeam2: 1,
+      },
+      {
+        team1: "Team Omega",
+        team2: "Team Epsilon",
+        scoreTeam1: 3,
+        scoreTeam2: 2,
+      },
+      {
+        team1: "Team Omega",
+        team2: "Team Zeta",
+        scoreTeam1: 3,
+        scoreTeam2: 2,
+      },
+    ],
+  },
+  {
+    nbWin: 0,
+    nbLoose: 3,
+    matches: [
+      {
+        team1: "Team Mu",
+        team2: "Team Nu",
+        scoreTeam1: 1,
+        scoreTeam2: 3,
+      },
+      {
+        team1: "Team Mu",
+        team2: "Team Xi",
+        scoreTeam1: 2,
+        scoreTeam2: 3,
+      },
+      {
+        team1: "Team Mu",
+        team2: "Team Omicron",
+        scoreTeam1: 2,
+        scoreTeam2: 3,
+      },
+    ],
+  },
+];
+
+// On construit un tournoi fictif avec ces données réparties en deux rounds
 const sampleTournamentData = {
   roundList: [
     {
-      round: [
-        {
-          nbWin: 2,
-          nbLoose: 1,
-          matches: [
-            {
-              id: 1,
-              name: "Match A",
-              team1: "Team A",
-              team2: "Team B",
-              scoreTeam1: 3,
-              scoreTeam2: 2,
-            },
-          ],
-        },
-        {
-          nbWin: 3,
-          nbLoose: 0,
-          matches: [
-            {
-              id: 2,
-              name: "Match B",
-              team1: "Team C",
-              team2: "Team D",
-              scoreTeam1: 1,
-              scoreTeam2: 0,
-            },
-          ],
-        },
-      ],
+      round: [swissRoundElementData[0], swissRoundElementData[1]],
     },
     {
-      round: [
-        {
-          nbWin: 1,
-          nbLoose: 2,
-          matches: [
-            {
-              id: 3,
-              name: "Match C",
-              team1: "Team E",
-              team2: "Team F",
-              scoreTeam1: 2,
-              scoreTeam2: 2,
-            },
-          ],
-        },
-        {
-          nbWin: 2,
-          nbLoose: 2,
-          matches: [
-            {
-              id: 4,
-              name: "Match D",
-              team1: "Team G",
-              team2: "Team H",
-              scoreTeam1: 0,
-              scoreTeam2: 1,
-            },
-          ],
-        },
-      ],
+      round: [swissRoundElementData[2]],
     },
   ],
 };
