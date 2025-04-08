@@ -1,4 +1,7 @@
 import IconText from "../icon-text/IconText";
+import TrophyBronze from "../icons/TrophyBronze";
+import TrophyGold from "../icons/TrophyGold";
+import TrophySilver from "../icons/TrophySilver";
 
 export interface RankRowProps {
   ranking: number;
@@ -15,16 +18,14 @@ function RankRow({
 }: RankRowProps) {
   var rankContent: React.ReactElement = <>{ranking}</>;
   if (ranking <= 3) {
-    var trophy = "gold";
+    var trophy = TrophyGold;
     if (ranking == 2) {
-      trophy = "silver";
+      trophy = TrophySilver;
     } else if (ranking == 3) {
-      trophy = "bronze";
+      trophy = TrophyBronze;
     }
     rankContent = IconText({
-      Icon: () => (
-        <img src={"/icons/trophy-" + trophy + ".svg"} />
-      ),
+      Icon: trophy,
       label: String(ranking)
     });
   }

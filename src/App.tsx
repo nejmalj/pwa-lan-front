@@ -1,7 +1,7 @@
 import "./App.scss";
 
-import InstallButton from './components/install-button/InstallButton'
-import Navbar from './components/navbar/Navbar'
+import InstallButton from "./components/install-button/InstallButton";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (

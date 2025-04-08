@@ -3,6 +3,8 @@
 .resultsTable {
   width: 100%;
   color: $white;
+  border-collapse: separate;
+  border-spacing: 1px 3px;
 
   td {
     text-align: center;

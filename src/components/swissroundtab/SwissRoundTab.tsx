@@ -69,7 +69,7 @@ export default function SwissRoundTab({
   );
 
   return (
-    <div>
+    <div className="swissRoundTab">
       <table>
         <thead>
           <tr>
