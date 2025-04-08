@@ -1,4 +1,4 @@
-$primary-color: #fe7216;
+$primary-gradient: linear-gradient(90deg, #E07A30 0%, #DD5227 100%);
 $secondary-color: #6c757d;
 $danger-color: #dc3545;
 
@@ -9,7 +9,7 @@ $danger-color: #dc3545;
   border: none;
   border-radius: 10px;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
   cursor: pointer;
   gap: 8px;
 
@@ -27,12 +27,12 @@ $danger-color: #dc3545;
     font-size: 18px;
   }
 
-  // Variantes
   &.primary {
-    background-color: $primary-color;
+    background: $primary-gradient;
     color: white;
     &:hover {
-      background-color: darken($primary-color, 10%);
+      background: $primary-gradient;
+      opacity: 0.9;
     }
   }
   &.secondary {
