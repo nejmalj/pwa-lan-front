@@ -7,10 +7,10 @@ const meta: Meta<typeof TeamCard> = {
     tags: ["autodocs"],
     args: {
         teamName: "Dream Team",
-        members: [
-            { name: "Lala", class: "MBA1 DFS", level: "Gold" },
-            { name: "Toto", class: "MBA2 DFS", level: "Platine" },
-            { name: "Titi", class: "MBA1 DFS", level: "Silver" },
+        players: [
+            { name: "Lala", promoName: "MBA DFS", levelName: "Bronze" },
+            { name: "Toto", promoName: "MBA DFS", levelName: "Bronze" },
+            { name: "Titi", promoName: "MBA DFS", levelName: "Bronze" },
         ],
     },
 };
@@ -21,10 +21,10 @@ type Story = StoryObj<typeof TeamCard>;
 export const Default: Story = {
     args: {
         teamName: "Dream Team",
-        members: [
-          { name: "Lala", class: "MBA1 DFS", level: "Gold" },
-          { name: "Toto", class: "MBA2 DFS", level: "Platine" },
-          { name: "Titi", class: "MBA1 DFS", level: "Silver" },
+        players: [
+          { name: "Lala", promoName: "MBA DFS", levelName: "Bronze" },
+          { name: "Toto", promoName: "MBA DFS", levelName: "Bronze" },
+          { name: "Titi", promoName: "MBA DFS", levelName: "Bronze" },
         ],
     },
 };

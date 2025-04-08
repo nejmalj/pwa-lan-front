@@ -1,30 +1,29 @@
 import "./TeamCard.scss";
 
-type Member = {
+type Player = {
   name: string;
-  class: string;
-  level: string;
+  promoName: string;
+  levelName: string;
 };
 
 type TeamCardProps = {
   teamName: string;
-  members: Member[];
+  players: Player[];
 };
 
-const TeamCard = ({ teamName, members }: TeamCardProps) => {
-    return (
-        <div className="team-card">
-            <h2 className="team-name">{teamName}</h2>
-
-            {members.map((member, index) => (
-                <div key={index} className="team-member">
-                    <p className="member-name">{member.name}</p>
-                    <p>{member.class}</p>
-                    <p>{member.level}</p>
-                </div>
-            ))}
+const TeamCard = ({ teamName, players }: TeamCardProps) => {
+  return (
+    <div className="team-card">
+      <h2 className="team-name">{teamName}</h2>
+      {players.map((player, index) => (
+        <div key={index} className="team-member">
+          <p className="member-name">{player.name}</p>
+          <p>{player.promoName}</p>
+          <p>{player.levelName}</p>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default TeamCard;
