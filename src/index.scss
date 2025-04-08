@@ -21,6 +21,11 @@ span {
   font-size: $font-size-small;
   font-weight: 400;
 }
+
+a {
+  text-decoration: none;
+}
+
 h1 {
   font-family: $font-family;
   font-weight: $weight-title;
@@ -41,4 +46,3 @@ h2 {
   width: 100%;
   text-align: left;
 }
-

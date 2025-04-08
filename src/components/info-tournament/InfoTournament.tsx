@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PrimaryButton from "../buttons/primaryButton/PrimaryButton";
 import IconText from "../icon-text/IconText";
 import Calendar from "../icons/Calendar";
@@ -54,7 +55,9 @@ function InfoTournament({
       </div>
       {!isRegistration && (
         <div className="infosButtonContainer">
-          <PrimaryButton>S'inscrire</PrimaryButton>
+          <Link to="/register">
+            <PrimaryButton>S'inscrire</PrimaryButton>
+          </Link>
           <span>Déjà 6 équipes inscrites !</span>
         </div>
       )}
