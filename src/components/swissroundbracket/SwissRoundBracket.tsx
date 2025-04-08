@@ -14,9 +14,9 @@ export function SwissRoundBracket(props: Tournament) {
     const {roundList} = props
     return (
         <div className="swissRoundBracket">
-            {roundList.map((roundList, index) => (
+            {roundList.map((roundList) => (
                 <div className="roundListContainer">
-                    {roundList.round.map((round, index) => (
+                    {roundList.round.map((round) => (
                         <SwissRoundElement nbWin={round.nbWin} nbLoose={round.nbLoose} matches={round.matches}/>
                     ))}
                 </div>
