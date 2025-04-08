@@ -14,7 +14,7 @@ export default function Navbar() {
         className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
       >
         <div className="icon-wrapper">
-          <img src="/icons/house.svg" alt="Accueil" className="icon" />
+          <House />
         </div>
         <span>Accueil</span>
       </NavLink>
@@ -24,7 +24,7 @@ export default function Navbar() {
         className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
       >
         <div className="icon-wrapper">
-          <img src="/icons/registration.svg" alt="Inscription" className="icon" />
+          <Registration />
         </div>
         <span>Inscription</span>
       </NavLink>
@@ -34,7 +34,7 @@ export default function Navbar() {
         className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
       >
         <div className="icon-wrapper">
-          <img src="/icons/tournament.svg" alt="Tournoi" className="icon" />
+          <Tournament />
         </div>
         <span>Tournoi</span>
       </NavLink>
@@ -44,7 +44,7 @@ export default function Navbar() {
         className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
       >
         <div className="icon-wrapper">
-          <img src="/icons/results.svg" alt="Résultats" className="icon" />
+          <Results />
         </div>
         <span>Résultats</span>
       </NavLink>
