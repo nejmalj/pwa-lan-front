@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { default as CalendarIcon } from "../icons/Calendar";
+import { default as ClockIcon } from "../icons/Clock";
+import { default as LocationIcon } from "../icons/Location";
+import { default as PersonIcon } from "../icons/Person";
+import { default as TrophyIcon } from "../icons/Trophy";
+
 import IconText from "./IconText";
 
 const meta: Meta<typeof IconText> = {
@@ -10,30 +16,37 @@ export default meta;
 
 type Story = StoryObj<typeof IconText>;
 
-export const Trophy: Story = {
+export const Calendar: Story = {
   args: {
-    Icon: () => <img src="/trophy.svg" />,
-    label: "Convivialité et compétition"
-  }
-};
-
-export const User: Story = {
-  args: {
-    Icon: () => <img src="/person.svg" />,
-    label: "MyDigitalSchool"
+    Icon: () => <CalendarIcon />,
+    label: "25 mai 2025"
   }
 };
 
 export const Clock: Story = {
   args: {
-    Icon: () => <img src="/clock.svg" />,
-    label: "10h00"
+    Icon: () => <ClockIcon />,
+    label: "20h"
   }
 };
 
-export const Calendar: Story = {
+export const Location: Story = {
   args: {
-    Icon: () => <img src="/calendar.svg" />,
-    label: "25 mai"
+    Icon: () => <LocationIcon />,
+    label: "MyDigitalSchool"
+  }
+};
+
+export const Person: Story = {
+  args: {
+    Icon: () => <PersonIcon />,
+    label: "Etudiants, professeurs, invités"
+  }
+};
+
+export const Trophy: Story = {
+  args: {
+    Icon: () => <TrophyIcon />,
+    label: "Tournoi suisse"
   }
 };
