@@ -25,6 +25,7 @@ Clonez le dépôt et installez les dépendances :
 git clone https://github.com/votre-utilisateur/my-digital-arena.git
 cd my-digital-arena
 npm install
+npm install --save-dev @types/node
 ```
 
 ## Run 

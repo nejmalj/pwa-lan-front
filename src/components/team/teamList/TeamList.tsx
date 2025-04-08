@@ -29,9 +29,11 @@ export function TeamList() {
   const [levels, setLevels] = useState<Level[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    fetch("http://192.168.108.11:1992/api/promos", {
+
+    fetch(`${API_URL}/promos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +53,7 @@ export function TeamList() {
         setLoading(false);
       });
 
-    fetch("http://192.168.108.11:1992/api/rl-ranks", {
+    fetch(`${API_URL}/rl-ranks`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +73,7 @@ export function TeamList() {
         setLoading(false);
       });
 
-    fetch("http://192.168.108.11:1992/api/teams", {
+    fetch(`${API_URL}/teams`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
