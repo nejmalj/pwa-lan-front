@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import InstallButton from './InstallButton';
+import InstallButton from "./InstallButton";
 
 const meta = {
-  title: 'Components/InstallButton',
+  title: "Components/InstallButton",
   component: InstallButton,
   parameters: {
-    layout: 'centered',
+    layout: "centered"
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"]
 } satisfies Meta<typeof InstallButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {}
 };

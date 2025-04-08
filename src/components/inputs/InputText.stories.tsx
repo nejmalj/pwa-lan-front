@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import InputText from './InputText';
+import InputText from "./InputText";
 
 const meta = {
-  component: InputText,
+  component: InputText
 } satisfies Meta<typeof InputText>;
 
 export default meta;

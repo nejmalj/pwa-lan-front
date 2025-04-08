@@ -1,5 +1,5 @@
 export {}; // This makes the file a module
- 
+
 export interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
   readonly userChoice: Promise<{
@@ -8,7 +8,7 @@ export interface BeforeInstallPromptEvent extends Event {
   }>;
   prompt(): Promise<void>;
 }
- 
+
 declare global {
   interface WindowEventMap {
     beforeinstallprompt: BeforeInstallPromptEvent;
@@ -17,11 +17,11 @@ declare global {
   interface Navigator {
     userAgentData?: NavigatorUAData;
     standalone?: boolean;
-}
+  }
 }
 
 interface NavigatorUAData {
-    brands: { brand: string; version: string }[];
-    mobile: boolean;
-    platform: string;
+  brands: { brand: string; version: string }[];
+  mobile: boolean;
+  platform: string;
 }

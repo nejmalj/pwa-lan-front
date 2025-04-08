@@ -1,42 +1,44 @@
 .table-container {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-th, td {
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ddd;
-    font-size: 14px;
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 14px;
 }
 
 th {
-    background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
 tr:first-child {
-    background-color: #4caf50; /* Vert pour le meilleur score */
-    color: white;
+  background-color: #4caf50; /* Vert pour le meilleur score */
+  color: white;
 }
 
 tbody tr:not(:first-child):not(:last-child) {
-    background-color: #ffcc00; /* Jaune */
-    color: black;
+  background-color: #ffcc00; /* Jaune */
+  color: black;
 }
 
 tr:last-child {
-    background-color: #f44336; /* Rouge pour le pire score */
-    color: white;
+  background-color: #f44336; /* Rouge pour le pire score */
+  color: white;
 }
 
 @media (max-width: 600px) {
-    th, td {
-        padding: 6px;
-        font-size: 12px; /* Réduction de la taille des textes */
-    }
+  th,
+  td {
+    padding: 6px;
+    font-size: 12px; /* Réduction de la taille des textes */
+  }
 }
