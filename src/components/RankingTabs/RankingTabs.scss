@@ -1,3 +1,5 @@
+@use "../../styles/_variables" as *;
+
 .ranking-tabs {
   width: 100%;
   max-width: 1280px;
@@ -5,16 +7,18 @@
 
   .tabs-header {
     display: flex;
-    justify-content: center;
     margin-bottom: 1rem;
 
     button {
       background: none;
       border: none;
       padding: 0.5rem 1rem;
+      margin-right: 10px;
       cursor: pointer;
       font-size: 1rem;
-      color: #333;
+      color: white;
+      border-radius: 10px;
+      background-color: $bg-color-light;
       transition: border-bottom 0.3s;
 
       &:hover {
@@ -30,5 +34,9 @@
 
   .tabs-content {
     // Ici tu peux ajouter des styles pour le contenu des onglets
+    height: 100vh;
+    padding: 6%;
+    background-color: #1D2056;
+    border-radius: 18px;
   }
 }

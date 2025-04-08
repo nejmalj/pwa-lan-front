@@ -37,7 +37,7 @@ export default function RankingTabs({ rankingData, tournamentData }: RankingTabs
           className={activeTab === "bracket" ? "active" : ""}
           onClick={() => setActiveTab("bracket")}
         >
-          Swiss Round
+          Bracket
         </button>
       </div>
       <div className="tabs-content">
