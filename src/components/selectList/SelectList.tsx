@@ -13,9 +13,9 @@ function SelectList({ data, onClick, placeholder }: SelectListProps) {
     };
 
     return (
-        <select onChange={handleChange} className="select-list">
+        <select onChange={handleChange} className="select-list" defaultValue="">
             {placeholder && (
-                <option value="" disabled selected>
+                <option value="" disabled>
                     {placeholder}
                 </option>
             )}
