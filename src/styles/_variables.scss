@@ -1,17 +1,17 @@
 //// Variables CSS
 
 // import inter font google
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-// colors 
+// colors
 
-$bg-color: #15173D;
-$bg-color-light: #1D2056;
-$primary: #E07A30;
-$primary-dark: #DD5227;
+$bg-color: #15173d;
+$bg-color-light: #1d2056;
+$primary: #e07a30;
+$primary-dark: #dd5227;
 $white: #ffffff;
 
-// fonts 
+// fonts
 $font-family: "Inter", sans-serif;
 $weight-title: 600;
 $weight: 500;
@@ -22,5 +22,15 @@ $font-size-small: 14px;
 
 // animations / functions
 
+// gradient
+$gradient-orange: linear-gradient(
+  180deg,
+  $primary 0%,
+  $primary-dark 100%
+);
 
-
+$gradient-blue: linear-gradient(
+  90deg,
+  #3f46bc 0%,
+  $bg-color-light 100%
+);
