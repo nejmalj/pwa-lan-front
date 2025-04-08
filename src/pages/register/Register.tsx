@@ -97,7 +97,7 @@ function Register() {
                                 />
                             ))}
 
-                            <PrimaryButton variant="primary" size="lg">
+                            <PrimaryButton variant="primary" >
                                 S'inscrire
                             </PrimaryButton>
                         </form>
