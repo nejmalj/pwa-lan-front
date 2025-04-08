@@ -1,6 +1,17 @@
 import "./TeamCard.scss";
 
-const TeamCard = ({ teamName, members }) => {
+type Member = {
+  name: string;
+  class: string;
+  level: string;
+};
+
+type TeamCardProps = {
+  teamName: string;
+  members: Member[];
+};
+
+const TeamCard = ({ teamName, members }: TeamCardProps) => {
     return (
         <div className="team-card">
             <h2 className="team-name">{teamName}</h2>

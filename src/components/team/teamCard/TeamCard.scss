@@ -6,7 +6,7 @@
   align-items: flex-start;
   padding: 16px;
   gap: 8px;
-  background: linear-gradient(291.15deg, #3F46BC 0%, #1D2056 100%);
+  background: $gradient-blue;
   border-radius: 10px;
   box-sizing: border-box;
   position: relative;
@@ -19,7 +19,7 @@
     right: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(291.15deg, $primary 0%, $primary-dark 100%);
+    background: $gradient-orange;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
@@ -45,4 +45,3 @@ p {
   font-weight: 600;
   color: $white;
 }
-
