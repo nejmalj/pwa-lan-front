@@ -7,6 +7,7 @@
 
 $bg-color: #15173d;
 $bg-color-light: #1d2056;
+$bg-color-lighter: #3F46BC;
 $primary: #e07a30;
 $primary-dark: #dd5227;
 $white: #ffffff;
@@ -31,6 +32,6 @@ $gradient-orange: linear-gradient(
 
 $gradient-blue: linear-gradient(
   90deg,
-  #3f46bc 0%,
+  $bg-color-lighter 0%,
   $bg-color-light 100%
 );
