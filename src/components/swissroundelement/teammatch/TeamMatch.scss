@@ -1,0 +1,67 @@
+.teamMatch {
+    display: flex;
+    background: linear-gradient(to right, #1D2056, #3F46BC);
+    width: 100%;
+    position: relative;
+
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, #E07A30, #DD5227);
+    }
+
+    .team1 {
+        display: block;
+        width: 50%;
+        border-right: black solid 1px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        .team1name {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 20px;
+            margin-left: 5px;
+            float: left;
+        }
+
+        .team1score {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 20px;
+            float: right;
+        }
+    }
+
+    .team2 {
+        display: block;
+        width: 50%;
+        border-left: black solid 1px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        .team2name {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 20px;
+            float: right;
+        }
+
+        .team2score {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 20px;
+            margin-left: 20px;
+            float: left;
+        }
+    }
+}
