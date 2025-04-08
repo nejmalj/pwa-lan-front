@@ -1,5 +1,6 @@
-import {SwissRoundElement, SwissRoundElementsProps} from "./swissroundelement/SwissRoundElement.tsx";
 import "./SwissRoundBracket.scss";
+
+import {SwissRoundElement, SwissRoundElementsProps} from "./swissroundelement/SwissRoundElement.tsx";
 
 interface Round {
     round: SwissRoundElementsProps[];

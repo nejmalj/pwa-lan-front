@@ -1,0 +1,34 @@
+.ranking-tabs {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  .tabs-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    button {
+      background: none;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #333;
+      transition: border-bottom 0.3s;
+
+      &:hover {
+        border-bottom: 2px solid #333;
+      }
+
+      &.active {
+        border-bottom: 2px solid #333;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .tabs-content {
+    // Ici tu peux ajouter des styles pour le contenu des onglets
+  }
+}
