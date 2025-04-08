@@ -6,7 +6,7 @@ const meta: Meta<typeof TeamCard> = {
     component: TeamCard,
     tags: ["autodocs"],
     args: {
-        teamName: "Dream Team",
+        name: "Dream Team",
         players: [
             { name: "Lala", promoName: "MBA DFS", levelName: "Bronze" },
             { name: "Toto", promoName: "MBA DFS", levelName: "Bronze" },
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof TeamCard>;
 
 export const Default: Story = {
     args: {
-        teamName: "Dream Team",
+        name: "Dream Team",
         players: [
           { name: "Lala", promoName: "MBA DFS", levelName: "Bronze" },
           { name: "Toto", promoName: "MBA DFS", levelName: "Bronze" },

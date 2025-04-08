@@ -19,7 +19,7 @@ type Level = {
 };
 
 type Team = {
-  teamName: string;
+  name: string;
   players: Player[];
 };
 
@@ -116,7 +116,7 @@ export function TeamList() {
       {teams.map((team, index) => (
         <Card key={index}>
           <TeamCard
-            teamName={team.teamName}
+            name={team.name}
             players={team.players.map((player) => ({
               ...player,
               promoName: getPromoName(player.promoId),

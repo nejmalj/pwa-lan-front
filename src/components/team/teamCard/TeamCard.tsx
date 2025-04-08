@@ -7,14 +7,14 @@ type Player = {
 };
 
 type TeamCardProps = {
-  teamName: string;
+  name: string;
   players: Player[];
 };
 
-const TeamCard = ({ teamName, players }: TeamCardProps) => {
+const TeamCard = ({ name, players }: TeamCardProps) => {
   return (
     <div className="team-card">
-      <h2 className="team-name">{teamName}</h2>
+      <h2 className="team-name">{name}</h2>
       {players.map((player, index) => (
         <div key={index} className="team-member">
           <p className="member-name">{player.name}</p>
