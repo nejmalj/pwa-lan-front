@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import InstallButton from "./components/install-button/InstallButton";
 
 function App() {

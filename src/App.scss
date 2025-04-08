@@ -1,3 +1,9 @@
+@use "styles/_variables" as *;
+
+h1 {
+  font-family: $font-family;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -12,10 +18,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em $primary-dark);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em $primary-dark);
 }
 
 @keyframes logo-spin {
