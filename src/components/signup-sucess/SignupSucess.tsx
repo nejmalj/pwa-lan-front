@@ -11,7 +11,7 @@ export default function SignupSucess() {
           <br></br>
           Bonne chance !
         </p>
-        <PrimaryButton size="md" variant="primary">
+        <PrimaryButton variant="primary">
           Retour à l'acceuil
         </PrimaryButton>
       </Card>
