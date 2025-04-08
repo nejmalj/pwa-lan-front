@@ -8,9 +8,9 @@ const meta: Meta<typeof TeamCard> = {
     args: {
         teamName: "Dream Team",
         members: [
-            { name: "Dylan", class: "Développeur/dépressif", level: "noob" },
-            { name: "Louise", class: "Développeuse/UX", level: "Ça roule" },
-            { name: "Nejma", class: "Développeuse des fois", level: "On est là" },
+            { name: "Lala", class: "MBA1 DFS", level: "Gold" },
+            { name: "Toto", class: "MBA2 DFS", level: "Platine" },
+            { name: "Titi", class: "MBA1 DFS", level: "Silver" },
         ],
     },
 };
@@ -22,9 +22,9 @@ export const Default: Story = {
     args: {
         teamName: "Dream Team",
         members: [
-            { name: "Dylan", class: "Développeur/dépressif", level: "noob" },
-            { name: "Louise", class: "Développeuse/UX", level: "Ça roule" },
-            { name: "Nejma", class: "Développeuse des fois", level: "On est là" },
+          { name: "Lala", class: "MBA1 DFS", level: "Gold" },
+          { name: "Toto", class: "MBA2 DFS", level: "Platine" },
+          { name: "Titi", class: "MBA1 DFS", level: "Silver" },
         ],
     },
 };
