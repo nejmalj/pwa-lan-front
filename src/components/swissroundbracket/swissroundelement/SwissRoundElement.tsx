@@ -8,7 +8,7 @@ export interface Matches {
     scoreTeam2: number,
 }
 
-interface SwissRoundElementsProps {
+export interface SwissRoundElementsProps {
     nbWin: number,
     nbLoose: number,
     matches: Matches[],
