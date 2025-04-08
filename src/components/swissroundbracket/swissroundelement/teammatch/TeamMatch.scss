@@ -16,11 +16,12 @@
     }
 
     .team1 {
-        display: block;
+        display: flex;
         width: 50%;
         border-right: black solid 1px;
         padding-bottom: 10px;
         padding-top: 10px;
+        justify-content: space-between;
 
         .team1name {
             color: white;
@@ -28,7 +29,9 @@
             font-weight: bold;
             margin-right: 20px;
             margin-left: 5px;
-            float: left;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         .team1score {
@@ -36,23 +39,25 @@
             font-size: 2rem;
             font-weight: bold;
             margin-right: 20px;
-            float: right;
         }
     }
 
     .team2 {
-        display: block;
+        display: flex;
         width: 50%;
         border-left: black solid 1px;
         padding-bottom: 10px;
         padding-top: 10px;
+        justify-content: space-between;
 
         .team2name {
             color: white;
             font-size: 2rem;
             font-weight: bold;
             margin-right: 20px;
-            float: right;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         .team2score {
@@ -61,7 +66,6 @@
             font-weight: bold;
             margin-right: 20px;
             margin-left: 20px;
-            float: left;
         }
     }
 }
