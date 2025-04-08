@@ -1,21 +1,30 @@
-import { createRoot } from 'react-dom/client'
-import './index.scss'
-import App from './App.tsx'
-import Register from './pages/register/Register.tsx'
+import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Register from "./pages/register/Register.tsx";
+import Layout from "./components/layout/Layout";
+import "./index.scss";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    )
   },
   {
     path: "/register",
-    element: <Register />
-  },
+    element: (
+      <Layout>
+        <Register />
+      </Layout>
+    )
+  }
 ]);
 
 createRoot(document.getElementById("root")!).render(

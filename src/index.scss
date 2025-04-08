@@ -2,6 +2,13 @@
 
 body {
   font-family: $font-family;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 button {
