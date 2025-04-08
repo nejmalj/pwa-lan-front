@@ -1,9 +1,9 @@
 import {PropsWithChildren} from "react";
 import "./Card.scss";
 
-type CardProps = PropsWithChildren
+interface CardProps extends PropsWithChildren {}
 
-export function Card(props: CardProps){
+export function Card(props: PropsWithChildren){
     return <div className="card">
         {props.children}
     </div>
