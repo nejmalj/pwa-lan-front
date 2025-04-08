@@ -1,13 +1,14 @@
 import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
 import { Card } from "../../components/card/Card";
 import InputText from "../../components/inputs/InputText";
-import SelectList from "../../components/selectList/SelectList";
-import NavBar from "../../components/navbar/Navbar";
-
 import "./Register.scss";
 import Navbar from "../../components/navbar/Navbar";
+import PlayerForm from "../../components/player-form/PlayerForm";
 
 function Register() {
+
+    const nbPlayers = 2;
+
     const classOptions = {
         B1: "B1",
         B2: "B2",
@@ -31,6 +32,10 @@ function Register() {
         console.log(`Niveau sélectionné : ${key}`);
     };
 
+    const handleInputChange = (field: string, value: string) => {
+        console.log(`${field} : ${value}`);
+    };
+
     return (
         <>
             <Card>
@@ -43,7 +48,7 @@ function Register() {
                     </div>
                     <div className="register-form">
                         <h2>Equipe</h2>
-                        <form>
+                        <form className="player-form">
 
                             <div className="form-group">
                                 <InputText
@@ -53,61 +58,28 @@ function Register() {
                                     onChange={() => console.log("")}
                                 ></InputText>
                             </div>
-                            <h2>Utilisateur</h2>
-                            <div className="form-group">
-                                <InputText
-                                    type="text"
-                                    value=""
-                                    placeholder="Nom"
-                                    onChange={() => console.log("nom")}
-                                ></InputText>
-                            </div>
-                            <div className="form-group">
-                                <InputText
-                                    type="text"
-                                    value=""
-                                    placeholder="Prénom"
-                                    onChange={() => console.log("prenom")}
-                                ></InputText>
-                            </div>
-                            <div className="form-group">
-                                <InputText
-                                    type="text"
-                                    value=""
-                                    placeholder="Pseudo"
-                                    onChange={() => console.log("Pseudo")}
-                                ></InputText>
-                            </div>
-                            <div className="form-group">
-                                <InputText
-                                    type="email"
-                                    value=""
-                                    placeholder="Email"
-                                    onChange={() => console.log("email")}
-                                ></InputText>
-                            </div>
-                            <div className="form-group">
-                                <SelectList
-                                    data={classOptions}
-                                    onClick={handleClassSelect}
-                                    placeholder="Classe"
-                                ></SelectList>
-                            </div>
-                            <div className="form-group">
-                                <SelectList
-                                    data={levelsOptions}
-                                    onClick={handleLevelSelect}
-                                    placeholder="Niveau"
-                                ></SelectList>
-                            </div>
 
-                            <PrimaryButton variant="primary" size="lg">S'inscrire</PrimaryButton>
+                            {Array.from({ length: nbPlayers }).map((_, index) => (
+                                <PlayerForm
+                                    key={index}
+                                    classOptions={classOptions}
+                                    levelsOptions={levelsOptions}
+                                    onClassSelect={(key) => handleClassSelect(key)}
+                                    onLevelSelect={(key) => handleLevelSelect(key)}
+                                    onInputChange={(field, value) => handleInputChange(field, value)}
+                                    nbPlayers={index + 1}
+                                />
+                            ))}
+
+                            <PrimaryButton variant="primary" size="lg">
+                                S'inscrire
+                            </PrimaryButton>
                         </form>
                     </div>
                 </div>
+
+                <Navbar />
             </Card>
-            
-            <Navbar />
         </>
     );
 }
