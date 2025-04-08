@@ -13,8 +13,8 @@ type Story = StoryObj<typeof Card>;
 export const Default: Story = {
     render: (args) => (
         <Card {...args}>
-            <h2>Je suis une carte</h2>
-            <p>Avec du contenu à l'intérieur.</p>
+            <h2>Je suis une cartounette</h2>
+            <p>Avec du contenu à l'intérieur</p>
         </Card>
     ),
 };
