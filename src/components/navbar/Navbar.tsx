@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 
-import House from "../icons/House";
 import { NavLink } from "react-router-dom";
+import House from "../icons/House";
 import Registration from "../icons/Registration";
 import Results from "../icons/Results";
 import Tournament from "../icons/Tournament";
@@ -11,7 +11,9 @@ export default function Navbar() {
     <nav className="navbar">
       <NavLink
         to="/"
-        className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
+        className={({ isActive }) =>
+          "nav-item" + (isActive ? " active" : "")
+        }
       >
         <div className="icon-wrapper">
           <House />
@@ -21,7 +23,9 @@ export default function Navbar() {
 
       <NavLink
         to="/register"
-        className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
+        className={({ isActive }) =>
+          "nav-item" + (isActive ? " active" : "")
+        }
       >
         <div className="icon-wrapper">
           <Registration />
@@ -31,7 +35,9 @@ export default function Navbar() {
 
       <NavLink
         to="/tournoi"
-        className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
+        className={({ isActive }) =>
+          "nav-item" + (isActive ? " active" : "")
+        }
       >
         <div className="icon-wrapper">
           <Tournament />
@@ -41,7 +47,9 @@ export default function Navbar() {
 
       <NavLink
         to="/resultats"
-        className={({ isActive }) => "nav-item" + (isActive ? " active" : "")}
+        className={({ isActive }) =>
+          "nav-item" + (isActive ? " active" : "")
+        }
       >
         <div className="icon-wrapper">
           <Results />

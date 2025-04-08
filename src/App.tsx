@@ -7,10 +7,8 @@ function App() {
     <div className="app-wrapper">
       <div className="top-background" />
       <div className="content">
-       
         <Navbar />
         <h1>rl</h1>
-       
       </div>
     </div>
   );
