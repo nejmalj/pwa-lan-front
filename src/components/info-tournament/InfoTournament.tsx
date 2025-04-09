@@ -8,6 +8,7 @@ import Person from "../icons/Person";
 import Trophy from "../icons/Trophy";
 
 import "./InfoTournament.scss";
+import { useEffect, useState } from "react";
 
 interface InfoTournamentProps {
   isRegistration?: boolean;
@@ -23,7 +24,7 @@ function InfoTournament({
     },
     {
       icon: Clock,
-      label: "20h"
+      label: "18h"
     },
     {
       icon: Location,
@@ -38,6 +39,39 @@ function InfoTournament({
       label: "Tournoi suisse"
     }
   ];
+
+  const [teamsCount, setTeamsCount] = useState<
+    number | null
+  >(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    fetch(`${API_URL}/teams`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "Erreur lors de la récupération des équipes."
+          );
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setTeamsCount(data.length);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [API_URL]);
 
   return (
     <div className="infosContainer">
@@ -58,7 +92,24 @@ function InfoTournament({
           <Link to="/register">
             <PrimaryButton>S'inscrire</PrimaryButton>
           </Link>
-          <span>Déjà 6 équipes inscrites !</span>
+          {!loading && !error && teamsCount && (
+            <>
+              {teamsCount === 0 && (
+                <span>
+                  Fais partie de la première équipe à
+                  t'inscrire !
+                </span>
+              )}
+              {teamsCount === 1 && (
+                <span>Une équipe est déjà inscrite !</span>
+              )}
+              {teamsCount > 1 && (
+                <span>
+                  Déjà {teamsCount} équipes inscrites !
+                </span>
+              )}
+            </>
+          )}
         </div>
       )}
     </div>
