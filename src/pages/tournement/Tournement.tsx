@@ -1,7 +1,6 @@
 import Tabs, { TabItem } from "../../components/tabs/Tabs";
 
 import InfoTournament from "../../components/info-tournament/InfoTournament";
-import React from "react";
 import { SwissRoundBracket } from "../../components/swissroundbracket/SwissRoundBracket";
 import { SwissRoundElementsProps } from "../../components/swissroundbracket/swissroundelement/SwissRoundElement";
 import { TeamList } from "../../components/team/teamList/TeamList";
@@ -75,7 +74,7 @@ export default function TournamentPage() {
   const tabItems: TabItem[] = [
     {
       label: "A propos",
-      content: (
+      content: () => (
         <div style={{ padding: "1rem" }}>
           <InfoTournament isRegistration={false} />
         </div>
@@ -83,7 +82,7 @@ export default function TournamentPage() {
     },
     {
       label: "Format",
-      content: (
+      content: () => (
         <div style={{ padding: "1rem" }}>
           <SwissRoundBracket roundList={sampleTournamentData.roundList} />
         </div>
@@ -91,7 +90,7 @@ export default function TournamentPage() {
     },
     {
       label: "Équipes",
-      content: (
+      content: () => (
         <div style={{ padding: "1rem" }}>
           <TeamList />
         </div>

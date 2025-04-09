@@ -15,7 +15,7 @@ export const Default: Story = {
     items: [
       {
         label: "Infos",
-        content: (
+        content: () => (
           <div>
             <h3>Bienvenue</h3>
             <p>Voici le contenu de l'onglet "Infos".</p>
@@ -24,7 +24,7 @@ export const Default: Story = {
       },
       {
         label: "Liste",
-        content: (
+        content: () => (
           <ul>
             <li>Élément 1</li>
             <li>Élément 2</li>

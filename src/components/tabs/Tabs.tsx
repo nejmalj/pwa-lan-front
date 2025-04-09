@@ -1,10 +1,10 @@
 import "./Tabs.scss";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 export interface TabItem {
   label: string;
-  content: React.ReactNode;
+  content: React.FC;
 }
 
 export interface TabsProps {
@@ -19,6 +19,7 @@ export default function Tabs({
   const [activeTab, setActiveTab] =
     useState(defaultTabIndex);
 
+  const Child = items[activeTab].content;
   return (
     <div className="tabs">
       <div className="tabs-header">
@@ -33,7 +34,7 @@ export default function Tabs({
         ))}
       </div>
       <div className="tabs-content">
-        {items[activeTab]?.content}
+        <Child />
       </div>
     </div>
   );

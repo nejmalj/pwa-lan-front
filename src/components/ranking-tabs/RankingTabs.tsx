@@ -22,10 +22,10 @@ export default function RankingTabs({
   tournamentData
 }: RankingTabsProps) {
   const tabItems: TabItem[] = [
-    { label: "Classement", content: <Ranking /> },
+    { label: "Classement", content:() => <Ranking /> },
     {
       label: "Bracket",
-      content: (
+      content: () => (
         <SwissRoundBracket
           roundList={tournamentData.roundList}
         />

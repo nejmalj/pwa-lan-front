@@ -1,8 +1,6 @@
 import Ranking from "../../components/ranking/Ranking.tsx";
 import {SwissRoundBracket} from "../../components/swissroundbracket/SwissRoundBracket.tsx";
-import {TabItem} from "../../components/tabs/tabs.tsx";
-import Tabs from "../../components/tabs/tabs.tsx";
-import {JSX} from "react";
+import Tabs from "../../components/tabs/Tabs";
 
 
 function Result() {
@@ -71,9 +69,9 @@ function Result() {
             ],
         },
     ]
-    const tabsItems: { label: string; content: JSX.Element }[] = [
-        {label: "Classement", content: <Ranking/>},
-        {label: "Bracket", content: <SwissRoundBracket roundList={roundList}/>},
+    const tabsItems: { label: string; content: React.FC }[] = [
+        {label: "Classement", content: () => <Ranking/>},
+        {label: "Bracket", content: () => <SwissRoundBracket roundList={roundList}/>},
     ]
 
     return (

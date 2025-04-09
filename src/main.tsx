@@ -1,18 +1,13 @@
 import "./index.scss";
 
-import {
-  RouterProvider,
-  createBrowserRouter
-} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import Layout from "./components/layout/Layout";
 import Register from "./pages/register/Register.tsx";
-import Layout from "./components/layout/Layout";
-import "./index.scss";
 import Result from "./pages/result/Result.tsx";
-import TournamentPage from "./pages/tournament/Tournement.tsx";
-import { createRoot } from "react-dom/client";
+import TournamentPage from "./pages/tournement/Tournement.tsx";
+import {createRoot} from "react-dom/client";
 
 const router = createBrowserRouter([
   {
