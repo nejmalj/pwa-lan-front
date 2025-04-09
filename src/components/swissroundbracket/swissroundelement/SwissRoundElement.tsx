@@ -1,4 +1,5 @@
 import TeamMatch from "./teammatch/TeamMatch.tsx";
+import "./SwissRoundElement.scss";
 
 
 export interface Matches {

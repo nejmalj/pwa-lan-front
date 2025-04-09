@@ -8,7 +8,10 @@ import {
 import Home from "./pages/home/Home";
 import Layout from "./components/layout/Layout";
 import Register from "./pages/register/Register.tsx";
-import TournamentPage from "./pages/tournement/Tournement.tsx";
+import Layout from "./components/layout/Layout";
+import "./index.scss";
+import Result from "./pages/result/Result.tsx";
+import TournamentPage from "./pages/tournament/Tournement.tsx";
 import { createRoot } from "react-dom/client";
 
 const router = createBrowserRouter([
@@ -33,6 +36,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <TournamentPage />
+      </Layout>
+    )
+  },
+  {
+    path: "/resultats",
+    element: (
+      <Layout>
+        <Result />
       </Layout>
     )
   }
