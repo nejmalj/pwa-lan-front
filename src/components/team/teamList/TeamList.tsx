@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import { Card } from "../../card/Card.tsx";
 import TeamCard from "../teamCard/TeamCard.tsx";
+import process from "process";
 
 type Player = {
   name: string;
