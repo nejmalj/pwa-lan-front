@@ -29,19 +29,20 @@ export function TeamList() {
   const [levels, setLevels] = useState<Level[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-
     fetch(`${API_URL}/promos`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Erreur lors de la récupération des promotions.");
+          throw new Error(
+            "Erreur lors de la récupération des promotions."
+          );
         }
         return response.json();
       })
@@ -56,12 +57,14 @@ export function TeamList() {
     fetch(`${API_URL}/rl-ranks`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Erreur lors de la récupération des niveaux.");
+          throw new Error(
+            "Erreur lors de la récupération des niveaux."
+          );
         }
         return response.json();
       })
@@ -76,12 +79,14 @@ export function TeamList() {
     fetch(`${API_URL}/teams`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Erreur lors de la récupération des équipes.");
+          throw new Error(
+            "Erreur lors de la récupération des équipes."
+          );
         }
         return response.json();
       })
@@ -104,12 +109,16 @@ export function TeamList() {
   }
 
   const getPromoName = (promoId: number) => {
-    const promo = promos.find((promo) => promo.id === promoId);
+    const promo = promos.find(
+      (promo) => promo.id === promoId
+    );
     return promo ? promo.name : "Inconnu";
   };
 
   const getLevelName = (levelId: number) => {
-    const level = levels.find((level) => level.id === levelId);
+    const level = levels.find(
+      (level) => level.id === levelId
+    );
     return level ? level.name : "Inconnu";
   };
 
@@ -122,7 +131,7 @@ export function TeamList() {
             players={team.players.map((player) => ({
               ...player,
               promoName: getPromoName(player.promoId),
-              levelName: getLevelName(player.levelId),
+              levelName: getLevelName(player.levelId)
             }))}
           />
         </Card>
