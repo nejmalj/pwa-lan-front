@@ -1,6 +1,8 @@
 import Ranking from "../../components/ranking/Ranking.tsx";
 import {SwissRoundBracket} from "../../components/swissroundbracket/SwissRoundBracket.tsx";
-import {TabItem, Tabs} from "../../components/tabs/tabs.tsx";
+import {TabItem} from "../../components/tabs/tabs.tsx";
+import Tabs from "../../components/tabs/tabs.tsx";
+import {JSX} from "react";
 
 
 function Result() {
@@ -69,40 +71,8 @@ function Result() {
             ],
         },
     ]
-    const fakeData = [
-        {
-            rank: 1,
-            équipe: "Les top 1",
-            win: 11,
-            loss: 0
-        },
-        {
-            rank: 2,
-            équipe: "Les top 2",
-            win: 10,
-            loss: 1
-        },
-        {
-            rank: 3,
-            équipe: "Les top 3",
-            win: 9,
-            loss: 2
-        },
-        {
-            rank: 4,
-            équipe: "Les top 4",
-            win: 8,
-            loss: 3
-        },
-        {
-            rank: 5,
-            équipe: "Les top 5",
-            win: 7,
-            loss: 4
-        }
-    ];
-    const tabsItems: TabItem[] = [
-        {label: "Classement", content: <Ranking ranks={fakeData}/>},
+    const tabsItems: { label: string; content: JSX.Element }[] = [
+        {label: "Classement", content: <Ranking/>},
         {label: "Bracket", content: <SwissRoundBracket roundList={roundList}/>},
     ]
 
