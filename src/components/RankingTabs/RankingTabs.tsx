@@ -1,6 +1,6 @@
 // import "./RankingTabs.scss";
 
-//DYLAN EST UN LOOSER
+//DYLAN EST UN BG
 
 import Ranking, { Rank } from "../ranking/Ranking";
 import { TabItem, Tabs } from "../tabs/tabs";

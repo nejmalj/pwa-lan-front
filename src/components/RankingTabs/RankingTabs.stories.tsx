@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import RankingTabs from "./RankingTabs";
 
-//DYLAN EST UN LOOSER
+//DYLAN EST UN BG
 const sampleTournamentData = {
   roundList: [
     {

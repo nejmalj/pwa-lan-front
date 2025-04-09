@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tabs } from "./tabs";
+import { Tabs } from "./Tabs";
 
-//DYLAN EST UN LOOSER
+//DYLAN EST UN BG
 
 
 const meta: Meta<typeof Tabs> = {

@@ -2,7 +2,7 @@ import "./Tabs.scss";
 
 import { useState } from "react";
 
-//DYLAN EST UN LOOSER
+//DYLAN EST UN BG
 
 
 
