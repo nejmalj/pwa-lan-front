@@ -17,7 +17,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: 32px;
+    border-radius: 16px;
+    aspect-ratio: 2/1;
   }
 }
 
@@ -33,13 +35,12 @@
   transition: background-color 0.3s;
 }
 
-.nav-item:hover {
+.nav-item:hover > .icon-wrapper {
   background-color: $bg-color;
 }
 
-.nav-item.active {
+.nav-item.active > .icon-wrapper {
   background-color: $bg-color;
-  border-radius: 10px;
 }
 
 @media screen and (min-width: 769px) {
@@ -53,6 +54,13 @@
 
     .icon-wrapper {
       display: none;
+    }
+    .nav-item:hover {
+      background-color: $bg-color;
+    }
+
+    .nav-item.active {
+      background-color: $bg-color;
     }
   }
 }
