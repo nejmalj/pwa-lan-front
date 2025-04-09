@@ -1,15 +1,18 @@
+import "./Register.scss";
+
 import {
   useCallback,
   useEffect,
   useMemo,
   useState
 } from "react";
-import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
+
 import { Card } from "../../components/card/Card";
+import InfoTournament from "../../components/info-tournament/InfoTournament";
 import InputText from "../../components/inputs/InputText";
 import Navbar from "../../components/navbar/Navbar";
 import PlayerForm from "../../components/player-form/PlayerForm";
-import "./Register.scss";
+import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 
 export interface Player {
@@ -255,12 +258,13 @@ function Register() {
   return (
     <div className="registration-container">
       <h1 className="pageTitle">Inscription</h1>
+    
+     
       <Card>
+        
         <div className="register-container">
-          {error && (
-            <p className="warning-message">{error}</p>
-          )}
-
+        <InfoTournament isRegistration={true} />
+      
           <div className="register-form">
             <h2>Equipe</h2>
             <form className="player-form">
