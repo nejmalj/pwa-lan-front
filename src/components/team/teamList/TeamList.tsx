@@ -99,7 +99,7 @@ export function TeamList() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [API_URL]);
 
   if (loading) {
     return <div>Chargement des équipes...</div>;
@@ -126,14 +126,14 @@ export function TeamList() {
   return (
     <div className="team-list">
       {teams.map((team) => (
-          <TeamCard
-            name={team.name}
-            players={team.players.map((player) => ({
-              ...player,
-              promoName: getPromoName(player.promoId),
-              levelName: getLevelName(player.levelId)
-            }))}
-          />
+        <TeamCard
+          name={team.name}
+          players={team.players.map((player) => ({
+            ...player,
+            promoName: getPromoName(player.promoId),
+            levelName: getLevelName(player.levelId)
+          }))}
+        />
       ))}
     </div>
   );
