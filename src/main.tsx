@@ -10,7 +10,7 @@ import Home from "./pages/home/Home";
 import Layout from "./components/layout/Layout";
 import Register from "./pages/register/Register.tsx";
 import Result from "./pages/result/Result.tsx";
-import TournamentPage from "./pages/tournement/Tournement.tsx";
+import TournamentPage from "./pages/tournament/Tournament.tsx";
 import { createRoot } from "react-dom/client";
 
 const router = createBrowserRouter([
