@@ -9,6 +9,14 @@
   h1 {
     margin-bottom: 16px;
   }
+  .carousel div {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    img {
+      border-radius: 50%;
+    }
+  }
 }
 
 @media screen and (min-width: 769px) {
