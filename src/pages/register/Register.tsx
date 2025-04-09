@@ -11,12 +11,10 @@ import "./Register.scss";
 import Navbar from "../../components/navbar/Navbar";
 import PlayerForm from "../../components/player-form/PlayerForm";
 
-interface Player {
+export interface Player {
   [key: string]: string;
   lastName: string;
   firstName: string;
-  teamName: string;
-  teamAcronyme: string;
   username: string;
   email: string;
   class: string;
@@ -75,13 +73,11 @@ function Register() {
 
   const handleSetTeamName = useCallback((value: string) => {
     setTeamName(value);
-    handlePlayerChange(0, "teamName", value);
-  }, []);
+    },
 
   const handleSetTeamAcronyme = useCallback(
     (value: string) => {
       setTeamAcronyme(value.toUpperCase());
-      handlePlayerChange(0, "teamAcronyme", value);
     },
     []
   );

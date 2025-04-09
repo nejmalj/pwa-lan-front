@@ -1,18 +1,10 @@
+import { Player } from "../../pages/register/Register";
 import InputText from "../inputs/InputText";
 import SelectList from "../selectList/SelectList";
 import "./PlayerForm.scss";
 
 interface PlayerFormProps {
-  player: {
-    teamName: string;
-    teamAcronyme: string;
-    lastName: string;
-    firstName: string;
-    username: string;
-    email: string;
-    class: string;
-    level: string;
-  };
+  player: Player;
   classOptions: { [key: string]: string };
   levelsOptions: { [key: string]: string };
   onLastNameChange: (value: string) => void;
