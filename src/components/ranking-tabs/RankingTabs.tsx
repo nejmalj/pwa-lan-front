@@ -2,8 +2,8 @@
 
 //DYLAN EST UN BG
 
-import Ranking, { Rank } from "../ranking/Ranking";
-import { TabItem, Tabs } from "../tabs/Tabs";
+import Ranking from "../ranking/Ranking";
+import { TabItem, Tabs } from "../tabs/tabs";
 
 import { SwissRoundBracket } from "../swissroundbracket/SwissRoundBracket";
 import { SwissRoundElementsProps } from "../swissroundbracket/swissroundelement/SwissRoundElement";
@@ -17,14 +17,22 @@ interface Round {
 }
 
 export interface RankingTabsProps {
-  rankingData: Rank[];
   tournamentData: Tournament;
 }
 
-export default function RankingTabs({ rankingData, tournamentData }: RankingTabsProps) {
+export default function RankingTabs({
+  tournamentData
+}: RankingTabsProps) {
   const tabItems: TabItem[] = [
-    { label: "Classement", content: <Ranking ranks={rankingData} /> },
-    { label: "Bracket", content: <SwissRoundBracket roundList={tournamentData.roundList} /> },
+    { label: "Classement", content: <Ranking /> },
+    {
+      label: "Bracket",
+      content: (
+        <SwissRoundBracket
+          roundList={tournamentData.roundList}
+        />
+      )
+    }
   ];
 
   return (
