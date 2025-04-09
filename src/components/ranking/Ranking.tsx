@@ -16,7 +16,6 @@ function Ranking() {
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    console.log(`${API_URL}/rankings`)
     fetch(`${API_URL}/rankings`, {
       method: "GET",
       headers: {
