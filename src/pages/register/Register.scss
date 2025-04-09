@@ -31,7 +31,35 @@
   }
 }
 
+.team-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  input {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 769px) {
+  .team-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .team-form {
+    flex-direction: row;
+
+    input {
+      width: 100%;
+    }
+  }
+
   .players {
     display: flex;
     gap: 16px;
@@ -40,10 +68,10 @@
       width: 100%;
     }
   }
+}
 
-  .form-button {
-    button {
-      max-width: 150px;
-    }
+.form-button {
+  button {
+    max-width: 150px;
   }
 }

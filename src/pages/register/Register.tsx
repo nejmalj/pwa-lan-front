@@ -127,7 +127,7 @@ function Register() {
           <div className="register-form">
             <h2>Equipe</h2>
             <form className="player-form">
-              <div className="form-group">
+              <div className="team-form">
                 <InputText
                   type="text"
                   value={teamName}
@@ -136,9 +136,7 @@ function Register() {
                     handleSetTeamName(e.target.value)
                   }
                 />
-              </div>
 
-              <div className="form-group">
                 <InputText
                   type="text"
                   value={teamAcronyme}
