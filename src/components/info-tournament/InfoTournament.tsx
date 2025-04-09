@@ -19,7 +19,7 @@ function InfoTournament({
   const listInfos = [
     {
       icon: Calendar,
-      label: "25 mai 2025"
+      label: "22 mai 2025"
     },
     {
       icon: Clock,
