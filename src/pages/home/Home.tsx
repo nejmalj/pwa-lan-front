@@ -1,4 +1,5 @@
 import { Card } from "../../components/card/Card";
+import { GameCard } from "../../components/game-card/GameCard";
 import InfoTournament from "../../components/info-tournament/InfoTournament";
 import "./Home.scss";
 
@@ -13,7 +14,11 @@ function Home() {
       </div>
       <div>
         <h1>Les jeux</h1>
-        <Card>{/* Ajouter la card jeu */}</Card>
+        <GameCard
+          title="Rocket League"
+          description="Rocket League est un jeu où des voitures s'affrontent pour marquer des buts."
+          imageUrl="/rl-card-image.jpg"
+        />
       </div>
       <div>
         <h1>Les partenaires</h1>
