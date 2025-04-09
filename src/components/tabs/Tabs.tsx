@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import "./Tabs.scss";
 
 import React, { useState } from "react";
@@ -16,8 +17,14 @@ export default function Tabs({
   items,
   defaultTabIndex = 0
 }: TabsProps) {
-  const [activeTab, setActiveTab] =
-    useState(defaultTabIndex);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tabParam = parseInt(
+    searchParams.get("tab") || "0",
+    10
+  );
+  const [activeTab, setActiveTab] = useState(
+    isNaN(tabParam) ? defaultTabIndex : tabParam
+  );
 
   const Child = items[activeTab].content;
   return (
@@ -27,7 +34,10 @@ export default function Tabs({
           <button
             key={index}
             className={activeTab === index ? "active" : ""}
-            onClick={() => setActiveTab(index)}
+            onClick={() => {
+              setActiveTab(index);
+              setSearchParams({ tab: index.toString() });
+            }}
           >
             {item.label}
           </button>
