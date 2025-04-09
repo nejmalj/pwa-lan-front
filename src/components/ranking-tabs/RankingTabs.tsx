@@ -3,7 +3,7 @@
 //DYLAN EST UN BG
 
 import Ranking, { Rank } from "../ranking/Ranking";
-import { TabItem, Tabs } from "../tabs/tabs";
+import { TabItem, Tabs } from "../tabs/Tabs";
 
 import { SwissRoundBracket } from "../swissroundbracket/SwissRoundBracket";
 import { SwissRoundElementsProps } from "../swissroundbracket/swissroundelement/SwissRoundElement";
