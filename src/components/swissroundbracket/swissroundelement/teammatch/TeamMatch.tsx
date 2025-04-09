@@ -5,20 +5,20 @@ export default function TeamMatch(match: Matches) {
     return (
         <div className="teamMatch">
             <div className="team1">
-                <div className="team1name">
+                <span className="team1name">
                     {match.team1}
-                </div>
-                 <div className="team1score">
+                </span>
+                 <span className="team1score">
                      {match.scoreTeam1}
-                 </div>
+                 </span>
             </div>
             <div className="team2">
-                <div className="team2score">
+                <span className="team2score">
                     {match.scoreTeam2}
-                </div>
-                <div className="team2name">
+                </span>
+                <span className="team2name">
                     {match.team2}
-                </div>
+                </span>
             </div>
         </div>
     )
