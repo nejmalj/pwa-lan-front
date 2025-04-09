@@ -1,4 +1,4 @@
-import { TabItem, Tabs } from "../../components/tabs/Tabs";
+import Tabs, { TabItem } from "../../components/tabs/Tabs";
 
 import InfoTournament from "../../components/info-tournament/InfoTournament";
 import React from "react";
