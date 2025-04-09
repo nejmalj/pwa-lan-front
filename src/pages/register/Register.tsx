@@ -7,9 +7,9 @@ import {
 import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
 import { Card } from "../../components/card/Card";
 import InputText from "../../components/inputs/InputText";
-import "./Register.scss";
 import Navbar from "../../components/navbar/Navbar";
 import PlayerForm from "../../components/player-form/PlayerForm";
+import "./Register.scss";
 
 export interface Player {
   [key: string]: string;
@@ -23,13 +23,13 @@ export interface Player {
 
 function Register() {
   const [teamName, setTeamName] = useState("");
+  const [autoTeamAcronyme, setAutoTeamAcronyme] =
+    useState("");
   const [teamAcronyme, setTeamAcronyme] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const [players, setPlayers] = useState<Player[]>(
     Array.from({ length: 2 }, () => ({
-      teamName: teamName,
-      teamAcronyme: teamAcronyme,
       lastName: "",
       firstName: "",
       username: "",
@@ -71,9 +71,17 @@ function Register() {
     []
   );
 
-  const handleSetTeamName = useCallback((value: string) => {
-    setTeamName(value);
+  const handleSetTeamName = useCallback(
+    (value: string) => {
+      let acronym = teamAcronyme;
+      if (acronym.length === 0) {
+        acronym = value.trim().slice(0, 3).toUpperCase();
+      }
+      setAutoTeamAcronyme(acronym);
+      setTeamName(value);
     },
+    [teamAcronyme]
+  );
 
   const handleSetTeamAcronyme = useCallback(
     (value: string) => {
@@ -84,8 +92,10 @@ function Register() {
 
   useEffect(() => {
     if (
-      teamAcronyme.length > 0 &&
-      teamAcronyme.length !== 3
+      (teamAcronyme.length > 0 &&
+        teamAcronyme.length !== 3) ||
+      (autoTeamAcronyme.length > 0 &&
+        autoTeamAcronyme.length !== 3)
     ) {
       setErrorMessage(
         "L'acronyme de l'équipe doit contenir exactement 3 caractères."
@@ -93,7 +103,7 @@ function Register() {
     } else {
       setErrorMessage("");
     }
-  }, [teamAcronyme]);
+  }, [teamAcronyme, autoTeamAcronyme]);
 
   const submitRegister = useCallback(
     (e: React.FormEvent) => {
@@ -135,7 +145,11 @@ function Register() {
 
                 <InputText
                   type="text"
-                  value={teamAcronyme}
+                  value={
+                    teamAcronyme.length > 0
+                      ? teamAcronyme
+                      : autoTeamAcronyme
+                  }
                   placeholder="Acronyme de l'équipe"
                   onChange={(e) =>
                     handleSetTeamAcronyme(e.target.value)
