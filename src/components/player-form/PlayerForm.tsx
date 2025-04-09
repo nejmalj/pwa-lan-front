@@ -37,7 +37,7 @@ function PlayerForm({
   nbPlayer
 }: Readonly<PlayerFormProps>) {
   return (
-    <>
+    <div>
       <h2>Joueur {nbPlayer}</h2>
       <div className="form-group">
         <InputText
@@ -87,7 +87,7 @@ function PlayerForm({
           placeholder="Sélectionnez un niveau"
         />
       </div>
-    </>
+    </div>
   );
 }
 

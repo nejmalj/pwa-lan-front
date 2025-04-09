@@ -120,9 +120,9 @@ function Register() {
   );
 
   return (
-    <>
+    <div className="registration-container">
+      <h1 className="pageTitle">Inscription</h1>
       <Card>
-        <h1 className="pageTitle">Inscription</h1>
         <div className="register-container">
           <div className="register-form">
             <h2>Equipe</h2>
@@ -154,62 +154,74 @@ function Register() {
                 )}
               </div>
 
-              {players.map((player, index) => (
-                <PlayerForm
-                  key={index}
-                  nbPlayer={index + 1}
-                  player={player}
-                  classOptions={classOptions}
-                  levelsOptions={levelsOptions}
-                  onLastNameChange={(value) =>
-                    handlePlayerChange(
-                      index,
-                      "lastName",
-                      value
-                    )
-                  }
-                  onFirstNameChange={(value) =>
-                    handlePlayerChange(
-                      index,
-                      "firstName",
-                      value
-                    )
-                  }
-                  onUsernameChange={(value) =>
-                    handlePlayerChange(
-                      index,
-                      "username",
-                      value
-                    )
-                  }
-                  onEmailChange={(value) =>
-                    handlePlayerChange(
-                      index,
-                      "email",
-                      value
-                    )
-                  }
-                  onClassSelect={(key) =>
-                    handlePlayerChange(index, "class", key)
-                  }
-                  onLevelSelect={(key) =>
-                    handlePlayerChange(index, "level", key)
-                  }
-                />
-              ))}
+              <div className="players">
+                {players.map((player, index) => (
+                  <PlayerForm
+                    key={index}
+                    nbPlayer={index + 1}
+                    player={player}
+                    classOptions={classOptions}
+                    levelsOptions={levelsOptions}
+                    onLastNameChange={(value) =>
+                      handlePlayerChange(
+                        index,
+                        "lastName",
+                        value
+                      )
+                    }
+                    onFirstNameChange={(value) =>
+                      handlePlayerChange(
+                        index,
+                        "firstName",
+                        value
+                      )
+                    }
+                    onUsernameChange={(value) =>
+                      handlePlayerChange(
+                        index,
+                        "username",
+                        value
+                      )
+                    }
+                    onEmailChange={(value) =>
+                      handlePlayerChange(
+                        index,
+                        "email",
+                        value
+                      )
+                    }
+                    onClassSelect={(key) =>
+                      handlePlayerChange(
+                        index,
+                        "class",
+                        key
+                      )
+                    }
+                    onLevelSelect={(key) =>
+                      handlePlayerChange(
+                        index,
+                        "level",
+                        key
+                      )
+                    }
+                  />
+                ))}
+              </div>
 
-              <PrimaryButton
-                variant="primary"
-                onClick={submitRegister}
-              >
-                S'inscrire
-              </PrimaryButton>
+              <div className="form-button">
+                <PrimaryButton
+                  variant="primary"
+                  onClick={submitRegister}
+                >
+                  S'inscrire
+                </PrimaryButton>
+              </div>
             </form>
           </div>
         </div>
       </Card>
       <Navbar />
-    </>
+    </div>
   );
 }
 
