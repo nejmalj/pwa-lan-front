@@ -1,6 +1,9 @@
-import "./RankingTabs.scss";
+// import "./RankingTabs.scss";
+
+//DYLAN EST UN LOOSER
 
 import Ranking, { Rank } from "../ranking/Ranking";
+import { TabItem, Tabs } from "../tabs/tabs";
 
 import { SwissRoundBracket } from "../swissroundbracket/SwissRoundBracket";
 import { SwissRoundElementsProps } from "../swissroundbracket/swissroundelement/SwissRoundElement";
@@ -11,9 +14,8 @@ interface Tournament {
 }
 
 interface Round {
-    round: SwissRoundElementsProps[];
+  round: SwissRoundElementsProps[];
 }
-
 
 export interface RankingTabsProps {
   rankingData: Rank[];
@@ -21,29 +23,14 @@ export interface RankingTabsProps {
 }
 
 export default function RankingTabs({ rankingData, tournamentData }: RankingTabsProps) {
-  // "liste" pour le classement, "bracket" pour le swiss round bracket
-  const [activeTab, setActiveTab] = useState<"liste" | "bracket">("liste");
+  const tabItems: TabItem[] = [
+    { label: "Classement", content: <Ranking ranks={rankingData} /> },
+    { label: "Bracket", content: <SwissRoundBracket roundList={tournamentData.roundList} /> },
+  ];
 
   return (
     <div className="ranking-tabs">
-      <div className="tabs-header">
-        <button
-          className={activeTab === "liste" ? "active" : ""}
-          onClick={() => setActiveTab("liste")}
-        >
-          Classement
-        </button>
-        <button
-          className={activeTab === "bracket" ? "active" : ""}
-          onClick={() => setActiveTab("bracket")}
-        >
-          Bracket
-        </button>
-      </div>
-      <div className="tabs-content">
-        {activeTab === "liste" && <Ranking ranks={rankingData} />}
-        {activeTab === "bracket" && <SwissRoundBracket roundList={tournamentData.roundList} />}
-      </div>
+      <Tabs items={tabItems} />
     </div>
   );
 }
