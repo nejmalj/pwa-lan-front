@@ -97,7 +97,7 @@ function InfoTournament({
               {teamsCount === 0 && (
                 <span>
                   Fais partie de la première équipe à
-                  t'inscrire !
+                  s'inscrire !
                 </span>
               )}
               {teamsCount === 1 && (
