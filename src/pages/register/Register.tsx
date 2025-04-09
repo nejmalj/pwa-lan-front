@@ -192,7 +192,6 @@ function Register() {
         );
         return;
       }
-
       const invalidPlayer = players.find(
         (player) =>
           !player.lastName.trim() ||
@@ -208,9 +207,7 @@ function Register() {
         );
         return;
       }
-
       setError(null);
-
       const payload = {
         name: teamName,
         acronym: teamAcronyme,
@@ -258,10 +255,7 @@ function Register() {
   return (
     <div className="registration-container">
       <h1 className="pageTitle">Inscription</h1>
-    
-     
       <Card>
-        
         <div className="register-container">
         <InfoTournament isRegistration={true} />
       
