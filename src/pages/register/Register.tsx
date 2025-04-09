@@ -1,4 +1,9 @@
-import { useCallback, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
 import { Card } from "../../components/card/Card";
 import InputText from "../../components/inputs/InputText";
@@ -10,6 +15,8 @@ interface Player {
   [key: string]: string;
   lastName: string;
   firstName: string;
+  teamName: string;
+  teamAcronyme: string;
   username: string;
   email: string;
   class: string;
@@ -18,8 +25,13 @@ interface Player {
 
 function Register() {
   const [teamName, setTeamName] = useState("");
+  const [teamAcronyme, setTeamAcronyme] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [players, setPlayers] = useState<Player[]>(
     Array.from({ length: 2 }, () => ({
+      teamName: teamName,
+      teamAcronyme: teamAcronyme,
       lastName: "",
       firstName: "",
       username: "",
@@ -61,6 +73,52 @@ function Register() {
     []
   );
 
+  const handleSetTeamName = useCallback((value: string) => {
+    setTeamName(value);
+    handlePlayerChange(0, "teamName", value);
+  }, []);
+
+  const handleSetTeamAcronyme = useCallback(
+    (value: string) => {
+      setTeamAcronyme(value.toUpperCase());
+      handlePlayerChange(0, "teamAcronyme", value);
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (
+      teamAcronyme.length > 0 &&
+      teamAcronyme.length !== 3
+    ) {
+      setErrorMessage(
+        "L'acronyme de l'équipe doit contenir exactement 3 caractères."
+      );
+    } else {
+      setErrorMessage("");
+    }
+  }, [teamAcronyme]);
+
+  const submitRegister = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      const isPlayerValid = players.every((player) =>
+        Object.values(player).every(
+          (value) => value.trim() !== ""
+        )
+      );
+      if (!isPlayerValid) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+      }
+
+      console.log("Formulaire soumis avec succès !");
+      console.log("Équipe :", { teamName, teamAcronyme });
+      console.log("Joueurs :", players);
+    },
+    [players, teamName, teamAcronyme]
+  );
+
   return (
     <>
       <Card>
@@ -75,9 +133,25 @@ function Register() {
                   value={teamName}
                   placeholder="Nom de l'équipe"
                   onChange={(e) =>
-                    setTeamName(e.target.value)
+                    handleSetTeamName(e.target.value)
                   }
                 />
+              </div>
+
+              <div className="form-group">
+                <InputText
+                  type="text"
+                  value={teamAcronyme}
+                  placeholder="Acronyme de l'équipe"
+                  onChange={(e) =>
+                    handleSetTeamAcronyme(e.target.value)
+                  }
+                />
+                {errorMessage && (
+                  <p className="warning-message">
+                    {errorMessage}
+                  </p>
+                )}
               </div>
 
               {players.map((player, index) => (
@@ -124,7 +198,10 @@ function Register() {
                 />
               ))}
 
-              <PrimaryButton variant="primary">
+              <PrimaryButton
+                variant="primary"
+                onClick={submitRegister}
+              >
                 S'inscrire
               </PrimaryButton>
             </form>

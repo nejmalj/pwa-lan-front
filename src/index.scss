@@ -46,3 +46,9 @@ h2 {
   width: 100%;
   text-align: left;
 }
+
+.warning-message {
+  color: $primary-dark;
+  font-size: $font-size-small;
+  font-weight: $weight;
+}
