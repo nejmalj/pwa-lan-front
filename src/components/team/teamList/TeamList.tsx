@@ -126,7 +126,7 @@ export function TeamList() {
   return (
     <div>
       {teams.map((team, index) => (
-        <Card key={index}>
+     
           <TeamCard
             name={team.name}
             players={team.players.map((player) => ({
@@ -135,7 +135,7 @@ export function TeamList() {
               levelName: getLevelName(player.levelId)
             }))}
           />
-        </Card>
+        
       ))}
     </div>
   );
