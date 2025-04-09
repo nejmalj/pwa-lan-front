@@ -10,6 +10,7 @@ import InputText from "../../components/inputs/InputText";
 import Navbar from "../../components/navbar/Navbar";
 import PlayerForm from "../../components/player-form/PlayerForm";
 import "./Register.scss";
+import { useNavigate } from "react-router-dom";
 
 export interface Player {
   [key: string]: string;
@@ -21,13 +22,28 @@ export interface Player {
   level: string;
 }
 
+interface Level {
+  id: number;
+  name: string;
+  order: number;
+}
+
+interface Promo {
+  id: number;
+  name: string;
+  order: number;
+}
+
 function Register() {
+  const API_URL = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
+
   const [teamName, setTeamName] = useState("");
   const [autoTeamAcronyme, setAutoTeamAcronyme] =
     useState("");
   const [teamAcronyme, setTeamAcronyme] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
+  const [errorMessageAcronyme, setErrorMessageAcronyme] =
+    useState("");
   const [players, setPlayers] = useState<Player[]>(
     Array.from({ length: 2 }, () => ({
       lastName: "",
@@ -38,27 +54,82 @@ function Register() {
       level: ""
     }))
   );
+  const [levels, setLevels] = useState<string[]>([]);
+  const [promos, setPromos] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-  const classOptions = useMemo(
-    () => ({
-      B1: "B1",
-      B2: "B2",
-      B3: "B3",
-      M1: "M1",
-      M2: "M2"
-    }),
-    []
-  );
+  useEffect(() => {
+    const fetchLevels = async () => {
+      try {
+        const response = await fetch(
+          `${API_URL}/rl-ranks`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }
+        );
 
-  const levelsOptions = useMemo(
-    () => ({
-      beginner: "Débutant",
-      intermediate: "Moyen",
-      advanced: "Confirmé",
-      expert: "Expert"
-    }),
-    []
-  );
+        if (!response.ok) {
+          throw new Error(
+            "Erreur lors de la récupération des niveaux."
+          );
+        }
+
+        const data: Level[] = await response.json();
+        const levelNames = data.map((level) => level.name);
+        setLevels(levelNames);
+      } catch (error) {
+        console.error("Erreur :", error);
+        setError("Impossible de récupérer les niveaux.");
+      }
+    };
+
+    fetchLevels();
+  }, [API_URL]);
+
+  useEffect(() => {
+    const fetchPromos = async () => {
+      try {
+        const response = await fetch(`${API_URL}/promos`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(
+            "Erreur lors de la récupération des promotions."
+          );
+        }
+
+        const data: Promo[] = await response.json();
+        const promoNames = data.map((promo) => promo.name);
+        setPromos(promoNames);
+      } catch (error) {
+        console.error("Erreur :", error);
+        setError("Impossible de récupérer les promotions.");
+      }
+    };
+
+    fetchPromos();
+  }, [API_URL]);
+
+  const levelsOptions = useMemo(() => {
+    return levels.reduce((options, levelName, index) => {
+      options[index.toString()] = levelName;
+      return options;
+    }, {} as { [key: string]: string });
+  }, [levels]);
+
+  const promosOptions = useMemo(() => {
+    return promos.reduce((options, promoName, index) => {
+      options[index.toString()] = promoName;
+      return options;
+    }, {} as { [key: string]: string });
+  }, [promos]);
 
   const handlePlayerChange = useCallback(
     (index: number, field: string, value: string) => {
@@ -97,32 +168,85 @@ function Register() {
       (autoTeamAcronyme.length > 0 &&
         autoTeamAcronyme.length !== 3)
     ) {
-      setErrorMessage(
+      setErrorMessageAcronyme(
         "L'acronyme de l'équipe doit contenir exactement 3 caractères."
       );
     } else {
-      setErrorMessage("");
+      setErrorMessageAcronyme("");
     }
   }, [teamAcronyme, autoTeamAcronyme]);
 
   const submitRegister = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
-      const isPlayerValid = players.every((player) =>
-        Object.values(player).every(
-          (value) => value.trim() !== ""
-        )
-      );
-      if (!isPlayerValid) {
-        alert("Veuillez remplir tous les champs.");
+
+      if (!teamName.trim() || !teamAcronyme.trim()) {
+        setError(
+          "Le nom de l'équipe et l'acronyme sont obligatoires."
+        );
         return;
       }
 
-      console.log("Formulaire soumis avec succès !");
-      console.log("Équipe :", { teamName, teamAcronyme });
-      console.log("Joueurs :", players);
+      const invalidPlayer = players.find(
+        (player) =>
+          !player.lastName.trim() ||
+          !player.firstName.trim() ||
+          !player.username.trim() ||
+          !player.class.trim() ||
+          !player.level.trim()
+      );
+
+      if (invalidPlayer) {
+        setError(
+          "Tous les joueurs doivent avoir un nom, un prénom, un pseudo, une promotion et un niveau."
+        );
+        return;
+      }
+
+      setError(null);
+
+      const payload = {
+        name: teamName,
+        acronym: teamAcronyme,
+        players: players.map((player) => ({
+          name: player.lastName,
+          firstname: player.firstName,
+          pseudo: player.username,
+          promoId: parseInt(player.class, 10),
+          rankId: parseInt(player.level, 10)
+        }))
+      };
+
+      try {
+        const response = await fetch(`${API_URL}/teams`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error(
+            "Erreur lors de la soumission du formulaire."
+          );
+        }
+
+        const data = await response.json();
+        console.log(
+          "Formulaire soumis avec succès :",
+          data
+        );
+
+        navigate("/confirm-register");
+      } catch (error) {
+        console.error("Erreur :", error);
+        setError(
+          "Une erreur est survenue lors de la soumission du formulaire."
+        );
+      }
     },
-    [players, teamName, teamAcronyme]
+    [players, teamName, teamAcronyme, API_URL, navigate]
   );
 
   return (
@@ -130,6 +254,10 @@ function Register() {
       <h1 className="pageTitle">Inscription</h1>
       <Card>
         <div className="register-container">
+          {error && (
+            <p className="warning-message">{error}</p>
+          )}
+
           <div className="register-form">
             <h2>Equipe</h2>
             <form className="player-form">
@@ -155,9 +283,9 @@ function Register() {
                     handleSetTeamAcronyme(e.target.value)
                   }
                 />
-                {errorMessage && (
+                {errorMessageAcronyme && (
                   <p className="warning-message">
-                    {errorMessage}
+                    {errorMessageAcronyme}
                   </p>
                 )}
               </div>
@@ -168,7 +296,7 @@ function Register() {
                     key={index}
                     nbPlayer={index + 1}
                     player={player}
-                    classOptions={classOptions}
+                    classOptions={promosOptions}
                     levelsOptions={levelsOptions}
                     onLastNameChange={(value) =>
                       handlePlayerChange(

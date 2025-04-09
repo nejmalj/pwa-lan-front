@@ -1,13 +1,17 @@
 import "./index.scss";
+import ConfirmRegister from "./pages/confirm-register/ConfirmRegister.tsx";
 
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import Layout from "./components/layout/Layout";
 import Register from "./pages/register/Register.tsx";
 import Result from "./pages/result/Result.tsx";
 import TournamentPage from "./pages/tournement/Tournement.tsx";
-import {createRoot} from "react-dom/client";
+import { createRoot } from "react-dom/client";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +43,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Result />
+      </Layout>
+    )
+  },
+  {
+    path: "/confirm-register",
+    element: (
+      <Layout>
+        <ConfirmRegister />
       </Layout>
     )
   }

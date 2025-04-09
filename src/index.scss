@@ -50,7 +50,8 @@ h2 {
 }
 
 .warning-message {
+  text-align: center;
   color: $primary-dark;
-  font-size: $font-size-small;
-  font-weight: $weight;
+  font-size: $font-size-subtitle;
+  font-weight: $weight-title;
 }
