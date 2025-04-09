@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-
-import { Card } from "../../card/Card.tsx";
 import TeamCard from "../teamCard/TeamCard.tsx";
+import "./TeamList.scss";
 
 type Player = {
   name: string;
@@ -126,8 +125,7 @@ export function TeamList() {
 
   return (
     <div className="team-list">
-      {teams.map((team, index) => (
-     
+      {teams.map((team) => (
           <TeamCard
             name={team.name}
             players={team.players.map((player) => ({
@@ -136,7 +134,6 @@ export function TeamList() {
               levelName: getLevelName(player.levelId)
             }))}
           />
-        
       ))}
     </div>
   );
