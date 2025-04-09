@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/tournoi",
+    path: "/tournament",
     element: (
       <Layout>
         <TournamentPage />
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/resultats",
+    path: "/results",
     element: (
       <Layout>
         <Result />

@@ -34,7 +34,7 @@ export default function Navbar() {
       </NavLink>
 
       <NavLink
-        to="/tournoi"
+        to="/tournament"
         className={({ isActive }) =>
           "nav-item" + (isActive ? " active" : "")
         }
@@ -46,7 +46,7 @@ export default function Navbar() {
       </NavLink>
 
       <NavLink
-        to="/resultats"
+        to="/results"
         className={({ isActive }) =>
           "nav-item" + (isActive ? " active" : "")
         }
