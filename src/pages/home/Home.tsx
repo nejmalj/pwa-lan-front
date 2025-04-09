@@ -43,12 +43,25 @@ function Home() {
               () => (
                 <div>
                   <a
-                    href="https://www.mydigitalschool.com"
+                    href="https://www.groupe-eduservices.fr/ecole/ipac"
                     target="_blank"
                   >
                     <img
-                      src="/mds.png"
-                      alt="Logo MDS"
+                      src="/ipac.png"
+                      alt="Logo IPAC"
+                    ></img>
+                  </a>
+                </div>
+              ),
+              () => (
+                <div>
+                  <a
+                    href="https://www.linkedin.com/in/marie-payen/"
+                    target="_blank"
+                  >
+                    <img
+                      src="/marie.png"
+                      alt="Marie Payen"
                     ></img>
                   </a>
                 </div>
