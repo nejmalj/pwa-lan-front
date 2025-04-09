@@ -142,16 +142,37 @@ function Register() {
 
   const handleSetTeamName = useCallback(
     (value: string) => {
-      const acronym = value
-        .trim()
-        .slice(0, 3)
-        .toUpperCase();
-      setTeamAcronyme(acronym);
       setTeamName(value);
-      console.log("acronym", acronym);
+      if (teamAcronyme.length !== 3) {
+        const acronym = value
+          .trim()
+          .slice(0, 3)
+          .toUpperCase();
+        setTeamAcronyme(acronym);
+      }
     },
-    [teamAcronyme, teamName]
+    [teamAcronyme]
   );
+
+  const handleSetTeamAcronyme = useCallback(
+    (value: string) => {
+      setTeamAcronyme(value.toUpperCase());
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (
+      teamAcronyme.length > 0 &&
+      teamAcronyme.length !== 3
+    ) {
+      setErrorMessageAcronyme(
+        "L'acronyme de l'équipe doit contenir exactement 3 caractères."
+      );
+    } else {
+      setErrorMessageAcronyme("");
+    }
+  }, [teamName, teamAcronyme]);
 
   const submitRegister = useCallback(
     async (e: React.FormEvent) => {
@@ -254,7 +275,9 @@ function Register() {
                   type="text"
                   value={teamAcronyme}
                   placeholder="Acronyme de l'équipe"
-                  onChange={() => {}}
+                  onChange={(e) =>
+                    handleSetTeamAcronyme(e.target.value)
+                  }
                 />
                 {errorMessageAcronyme && (
                   <p className="warning-message">
