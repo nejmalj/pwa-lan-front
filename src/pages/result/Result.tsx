@@ -67,7 +67,40 @@ function Result() {
                     ],
                 },
             ],
-        },
+        }, {
+            round : [
+                {
+                    nbWin: 3,
+                    nbLoose: 0,
+                    matches: [
+                        {team1: "Team Hydra", team2: "PERSONNE", scoreTeam1: 0, scoreTeam2: 0},
+                    ],
+                },
+                {
+                    nbWin: 2,
+                    nbLoose: 1,
+                    matches: [
+                        {team1: "Team Alpha", team2: "Team Delta", scoreTeam1: 3, scoreTeam2: 0},
+                        {team1: "Team Echo", team2: "PERSONNE", scoreTeam1: 0, scoreTeam2: 0},
+                    ],
+                },
+                {
+                    nbWin: 1,
+                    nbLoose: 2,
+                    matches: [
+                        {team1: "Team Joker", team2: "Team Fox", scoreTeam1: 3, scoreTeam2: 0},
+                        {team1: "Team Gamma", team2: "PERSONNE", scoreTeam1: 0, scoreTeam2: 0},
+                    ],
+                },
+                {
+                    nbWin: 0,
+                    nbLoose: 3,
+                    matches: [
+                        {team1: "Team Beta", team2: "PERSONNE", scoreTeam1: 0, scoreTeam2: 0},
+                    ],
+                },
+            ]
+        }
     ]
     const tabsItems: { label: string; content: React.FC }[] = [
         {label: "Classement", content: () => <Ranking/>},
