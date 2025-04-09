@@ -2,6 +2,7 @@ import "./TeamCard.scss";
 
 type Player = {
   name: string;
+  firstname: string;
   promoName: string;
   levelName: string;
 };
@@ -17,9 +18,9 @@ const TeamCard = ({ name, players }: TeamCardProps) => {
       <h2 className="team-name">{name}</h2>
       {players.map((player, index) => (
         <div key={index} className="team-member">
-          <p className="member-name">{player.name}</p>
+          <p className="member-name">{player.firstname} {player.name}</p>
           <p>{player.promoName}</p>
-          <p>{player.levelName}</p>
+          <p>Niveau {player.levelName}</p>
         </div>
       ))}
     </div>

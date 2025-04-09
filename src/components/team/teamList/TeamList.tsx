@@ -5,6 +5,7 @@ import TeamCard from "../teamCard/TeamCard.tsx";
 
 type Player = {
   name: string;
+  firstname: string;
   promoId: number;
   levelId: number;
 };
@@ -124,7 +125,7 @@ export function TeamList() {
   };
 
   return (
-    <div>
+    <div className="team-list">
       {teams.map((team, index) => (
      
           <TeamCard
