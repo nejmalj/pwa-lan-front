@@ -7,7 +7,6 @@ import { TabItem, Tabs } from "../tabs/tabs";
 
 import { SwissRoundBracket } from "../swissroundbracket/SwissRoundBracket";
 import { SwissRoundElementsProps } from "../swissroundbracket/swissroundelement/SwissRoundElement";
-import { useState } from "react";
 
 interface Tournament {
   roundList: Round[];
