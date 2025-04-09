@@ -1,8 +1,20 @@
-import SignupSucess from "../../components/signup-sucess/SignupSucess";
+import PrimaryButton from "../../components/buttons/primaryButton/PrimaryButton";
+import { Card } from "../../components/card/Card";
 import "./ConfirmRegister.scss";
 
-function ConfirmRegister() {
-  return <SignupSucess />;
+export default function ConfirmRegister() {
+  return (
+    <div className="signupSucess">
+      <Card>
+        <p>
+          Ton inscription a bien été prise en compte !
+          <br></br>
+          Bonne chance !
+        </p>
+        <PrimaryButton variant="primary">
+          Retour à l'acceuil
+        </PrimaryButton>
+      </Card>
+    </div>
+  );
 }
-
-export default ConfirmRegister;

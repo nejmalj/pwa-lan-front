@@ -39,8 +39,6 @@ function Register() {
   const navigate = useNavigate();
 
   const [teamName, setTeamName] = useState("");
-  const [autoTeamAcronyme, setAutoTeamAcronyme] =
-    useState("");
   const [teamAcronyme, setTeamAcronyme] = useState("");
   const [errorMessageAcronyme, setErrorMessageAcronyme] =
     useState("");
@@ -144,42 +142,23 @@ function Register() {
 
   const handleSetTeamName = useCallback(
     (value: string) => {
-      let acronym = teamAcronyme;
-      if (acronym.length === 0) {
-        acronym = value.trim().slice(0, 3).toUpperCase();
-      }
-      setAutoTeamAcronyme(acronym);
+      const acronym = value
+        .trim()
+        .slice(0, 3)
+        .toUpperCase();
+      setTeamAcronyme(acronym);
       setTeamName(value);
+      console.log("acronym", acronym);
     },
-    [teamAcronyme]
+    [teamAcronyme, teamName]
   );
-
-  const handleSetTeamAcronyme = useCallback(
-    (value: string) => {
-      setTeamAcronyme(value.toUpperCase());
-    },
-    []
-  );
-
-  useEffect(() => {
-    if (
-      (teamAcronyme.length > 0 &&
-        teamAcronyme.length !== 3) ||
-      (autoTeamAcronyme.length > 0 &&
-        autoTeamAcronyme.length !== 3)
-    ) {
-      setErrorMessageAcronyme(
-        "L'acronyme de l'équipe doit contenir exactement 3 caractères."
-      );
-    } else {
-      setErrorMessageAcronyme("");
-    }
-  }, [teamAcronyme, autoTeamAcronyme]);
 
   const submitRegister = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
 
+      console.log("teamName", teamName);
+      console.log("teamAcronyme", teamAcronyme);
       if (!teamName.trim() || !teamAcronyme.trim()) {
         setError(
           "Le nom de l'équipe et l'acronyme sont obligatoires."
@@ -273,15 +252,9 @@ function Register() {
 
                 <InputText
                   type="text"
-                  value={
-                    teamAcronyme.length > 0
-                      ? teamAcronyme
-                      : autoTeamAcronyme
-                  }
+                  value={teamAcronyme}
                   placeholder="Acronyme de l'équipe"
-                  onChange={(e) =>
-                    handleSetTeamAcronyme(e.target.value)
-                  }
+                  onChange={() => {}}
                 />
                 {errorMessageAcronyme && (
                   <p className="warning-message">
