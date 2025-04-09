@@ -1,13 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tabs } from "./Tabs";
-
-//DYLAN EST UN BG
-
+import Tabs from "./Tabs";
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
-  component: Tabs,
+  component: Tabs
 };
 
 export default meta;
@@ -23,7 +20,7 @@ export const Default: Story = {
             <h3>Bienvenue</h3>
             <p>Voici le contenu de l'onglet "Infos".</p>
           </div>
-        ),
+        )
       },
       {
         label: "Liste",
@@ -33,9 +30,9 @@ export const Default: Story = {
             <li>Élément 2</li>
             <li>Élément 3</li>
           </ul>
-        ),
-      },
+        )
+      }
     ],
-    defaultTabIndex: 0,
-  },
+    defaultTabIndex: 0
+  }
 };

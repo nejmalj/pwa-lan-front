@@ -2,10 +2,6 @@ import "./Tabs.scss";
 
 import { useState } from "react";
 
-//DYLAN EST UN BG
-
-
-
 export interface TabItem {
   label: string;
   content: React.ReactNode;
@@ -16,8 +12,12 @@ export interface TabsProps {
   defaultTabIndex?: number;
 }
 
-export function Tabs({ items, defaultTabIndex = 0 }: TabsProps) {
-  const [activeTab, setActiveTab] = useState(defaultTabIndex);
+export default function Tabs({
+  items,
+  defaultTabIndex = 0
+}: TabsProps) {
+  const [activeTab, setActiveTab] =
+    useState(defaultTabIndex);
 
   return (
     <div className="tabs">

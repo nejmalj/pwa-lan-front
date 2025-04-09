@@ -1,9 +1,7 @@
 // import "./RankingTabs.scss";
 
-//DYLAN EST UN BG
-
+import Tabs, { TabItem } from "../tabs/Tabs";
 import Ranking from "../ranking/Ranking";
-import { TabItem, Tabs } from "../tabs/tabs";
 
 import { SwissRoundBracket } from "../swissroundbracket/SwissRoundBracket";
 import { SwissRoundElementsProps } from "../swissroundbracket/swissroundelement/SwissRoundElement";
