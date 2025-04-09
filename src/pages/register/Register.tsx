@@ -150,6 +150,9 @@ function Register() {
           .toUpperCase();
         setTeamAcronyme(acronym);
       }
+      if (!value) {
+        setTeamAcronyme("");
+      }
     },
     [teamAcronyme]
   );
