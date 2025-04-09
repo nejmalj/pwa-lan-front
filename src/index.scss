@@ -2,6 +2,8 @@
 
 body {
   font-family: $font-family;
+  background-color: $bg-color;
+  overscroll-behavior-y: none;
   width: 100vw;
   min-height: 100vh;
 }
