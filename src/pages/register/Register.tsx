@@ -58,6 +58,7 @@ function Register() {
   const [levels, setLevels] = useState<string[]>([]);
   const [promos, setPromos] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  console.log(error);
 
   useEffect(() => {
     const fetchLevels = async () => {
